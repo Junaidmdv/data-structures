@@ -96,6 +96,22 @@ func (g *Graph) ShortestPath(start, tar int) {
 	fmt.Println(path)
 }
 
+// detect cycle in the directed graph
+
+func (g *Graph) IsCycle(cur int, visited map[int]bool, par int) bool {
+	visited[cur] = true
+
+	for _, v := range g.AdjList[cur] {
+		if visited[v.dest] && cur != par {
+			return true
+		}
+		if !visited[v.dest] {
+			return g.IsCycle(v.dest, visited, cur)
+		}
+	}
+	return false
+}
+
 func main() {
 	g := NewGraph()
 	g.Insert(1, 2, 5)
