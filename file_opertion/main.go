@@ -17,16 +17,13 @@ func fileExists(path string) (bool, error) {
 	return true, nil
 }
 
-
-
-func CreateFile(path string)error{
-	file,err:=os.Create(path)
-	if err != nil{
+func CreateFile(path string) error {
+	file, err := os.Create(path)
+	if err != nil {
 		return err
 	}
-    defer file.Close()
+	defer file.Close()
 
-	
 	return nil
 
 }
@@ -34,7 +31,7 @@ func CreateFile(path string)error{
 func main() {
 	// file exist
 	path := "sample.txt"
-	filexist,_:=fileExists(path)
-	fmt.Println("file exist:",filexist)
+	filexist, _ := fileExists(path)
+	fmt.Println("file exist:", filexist)
 
 }

@@ -22,7 +22,7 @@ func Qs(ar []int, st, end int) int {
 
 	ar[st], ar[j] = ar[j], ar[st]
 
-	return st+1
+	return j
 }
 
 func QuickSort(ar []int, st, end int) {

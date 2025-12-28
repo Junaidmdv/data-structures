@@ -31,6 +31,7 @@ func (c *CircularQueue) Insert(val int) {
 
 }
 
+
 func (c *CircularQueue) Pop() int {
 	if c.Capacity == 0 {
 		fmt.Println("can't add value,que is full")

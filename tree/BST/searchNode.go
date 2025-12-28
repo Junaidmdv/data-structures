@@ -17,13 +17,6 @@ func (t *Node) SearchNode(key int) bool {
 
 }
 
-func InOrderSuccessor(t *Node) *Node {
-	if t != nil && t.Left != nil {
-		t = t.Left
-	}
-	return t
-}
-
 func DeleteNode(t *Node, key int) *Node {
 	if key < t.Data {
 		t.Left = DeleteNode(t.Left, key)
@@ -42,6 +35,13 @@ func DeleteNode(t *Node, key int) *Node {
 			t.Right = DeleteNode(t.Right, key)
 
 		}
+	}
+	return t
+}
+
+func InOrderSuccessor(t *Node) *Node {
+	if t != nil && t.Left != nil {
+		t = t.Left
 	}
 	return t
 }
